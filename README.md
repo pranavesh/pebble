@@ -1,2 +1,2 @@
 # pebble
-pebble time watch faces and apps
+hello-world pebble watch face
