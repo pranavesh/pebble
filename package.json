@@ -1,0 +1,26 @@
+{
+    "author": "pranavesh@gmail.com",
+    "dependencies": {},
+    "keywords": [],
+    "name": "hello-world",
+    "pebble": {
+        "displayName": "hello-world",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "native",
+        "resources": {
+            "media": []
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt",
+            "chalk"
+        ],
+        "uuid": "7522e1ef-bb58-43d6-8fa6-acbf075f9529",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.0.0"
+}
