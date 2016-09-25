@@ -6,7 +6,7 @@ static TextLayer *s_text_layer;
 static void handle_timechange(struct tm *tick_time, TimeUnits units_changed) {
   static char time_buffer[10];
   
-  strftime(time_buffer, sizeof(time_buffer), "%H-%M", tick_time);
+  strftime(time_buffer, sizeof(time_buffer), "\n%H:%M %S", tick_time);
   text_layer_set_text(s_text_layer, time_buffer);
 }
 
@@ -21,7 +21,7 @@ static void init(void) {
 	text_layer_set_text(s_text_layer, "Hi, I'm Veeru!");
   
   // Set the font and text alignment
-	text_layer_set_font(s_text_layer, fonts_get_system_font(FONT_KEY_LECO_36_BOLD_NUMBERS ));
+	text_layer_set_font(s_text_layer, fonts_get_system_font(FONT_KEY_LECO_38_BOLD_NUMBERS ));
 	text_layer_set_text_alignment(s_text_layer, GTextAlignmentCenter);
 
 	// Add the text layer to the window
@@ -30,7 +30,7 @@ static void init(void) {
   // Enable text flow and paging on the text layer, with a slight inset of 10, for round screens
   text_layer_enable_screen_text_flow_and_paging(s_text_layer, 10);
 
-  tick_timer_service_subscribe(SECOND_UNIT, handle_timechange);
+  tick_timer_service_subscribe(MINUTE_UNIT, handle_timechange);
 	// Push the window, setting the window animation to 'true'
 	window_stack_push(s_window, true);
 	
