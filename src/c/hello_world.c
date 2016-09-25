@@ -36,20 +36,21 @@ static void init(void) {
   
   //initialize and setup new layer for date
 	date_layer = text_layer_create(GRect(0, 112, 144, 56));
+  
+  text_layer_set_text_color(date_layer, GColorWhite);
+  text_layer_set_background_color(date_layer, GColorBlack);
 
-  // Set the font and text alignment
 	text_layer_set_font(date_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_LIGHT));
 	text_layer_set_text_alignment(date_layer, GTextAlignmentCenter);
 
-	// Add the text layer to the window
 	layer_add_child(window_get_root_layer(s_window), text_layer_get_layer(date_layer));
-  
-  // Enable text flow and paging on the text layer, with a slight inset of 10, for round screens
+
   text_layer_enable_screen_text_flow_and_paging(date_layer, 0);
   
-
+  //add a listener for time change
   tick_timer_service_subscribe(SECOND_UNIT, handle_timechange);
-	// Push the window, setting the window animation to 'true'
+	
+  // Push the window, setting the window animation to 'true'
 	window_stack_push(s_window, true);
 	
 	// App Logging!
